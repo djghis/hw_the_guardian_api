@@ -1,18 +1,29 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <h1>Please Select an article</h1>
+    <article-select :articles="articles"/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import ArticleSelect from './components/ArticleSelect.vue'
 
 export default {
   name: 'App',
+  data(){
+    return {
+      articles: []
+    }
+  },
   components: {
-    HelloWorld
-  }
+    'article-select': ArticleSelect
+  },
+  mounted(){
+    fetch("https://content.guardianapis.com/search?q=cars&format=json&api-key=test")
+    .then(response => response.json())
+    .then(articleData => this.articles = articleData.response.results)
+// console.log(articleData.response.results)
+},
 }
 </script>
 
