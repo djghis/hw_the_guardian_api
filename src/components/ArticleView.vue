@@ -1,7 +1,7 @@
 <template lang="html">
   <div class="">
     <h2>{{article.webTitle}}</h2>
-    <a :href="article.webUrl" target="_blank">{{article.webUrl}}</a>
+    <a :href="article.webUrl">{{article.webUrl}}</a>
   </div>
 </template>
 
