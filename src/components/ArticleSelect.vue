@@ -10,7 +10,9 @@
 import {eventBus} from "../main.js"
 export default {
   name: "article-select",
-  props: ["articles"],
+  props: ["articles",
+          "subjectSearch"
+  ],
   data(){
     return {
       selectedArticle: {}
